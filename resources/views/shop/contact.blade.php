@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'contact-us') {{-- غيّر العنوان لكل صفحة --}}
+@section('title', 'contact-us') 
 
 @section('content')
 	<!-- Title page -->
@@ -9,7 +9,6 @@
 			Contact
 		</h2>
 	</section>	
-
 
 	<!-- Content page -->
 	<section class="bg0 p-t-104 p-b-116">
