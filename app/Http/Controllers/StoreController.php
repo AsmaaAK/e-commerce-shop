@@ -67,4 +67,9 @@ class StoreController extends Controller
     {
         return view('shop.contact'); 
     }
+    public function cart()
+    {
+        return view('shop.shopcart'); 
+    }
+
 }

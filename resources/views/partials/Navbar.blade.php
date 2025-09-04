@@ -49,11 +49,11 @@
 							</li>
 
 							<li class="active-menu">
-								<a href="product.html">Shop</a>
+							<a href="{{ route('shop.index') }}">Shop</a>			
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="{{ route('cart') }}">Features</a>
 							</li>
 
 							<li>
@@ -61,11 +61,11 @@
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+                            <a href="{{ route('about') }}">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+                             <a href="{{ route('contact') }}">Contact</a>
 							</li>
 						</ul>
 					</div>	

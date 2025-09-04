@@ -13,7 +13,7 @@ class ShopController extends Controller
 
     public function cart()
     {
-        return view('shop.cart'); // صفحة سلة التسوق
+        return view('shop.shopcart'); // صفحة سلة التسوق
     }
 
     public function checkout()
