@@ -8,7 +8,7 @@ class ProductController extends Controller
 {
     public function index() {
     $products = Product::all();
-    return view('shop.products', compact('products'));
+    return view('shop.products', ['products'=> $products]);
 }
 
 public function show($id) {

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,5 +16,12 @@ Route::get('/about', [StoreController::class, 'about'])->name('about');
 Route::get('/contact', [StoreController::class, 'contact'])->name('contact');
 Route::get('/shopcart', [ShopController::class, 'cart'])->name('shopcart.cart');
 Route::get('/shop/checkout', [ShopController::class, 'checkout'])->name('shop.checkout');
-Route::get('/product/{id}', [ShopController::class, 'details'])->name('product.details');
+Route::get('/product/{id?}', [ShopController::class, 'details'])->name('product.details');
 // Route::get('/shop/product-details', [ShopController::class, 'details'])->name('product.details');
+Route::get('/products',[ProductController::class,'index']);
+Route::get('/products/create',[ProductController::class,'create']);
+Route::post('/products',[ProductController::class,'store']);
+Route::get('/products/{id}',[ProductController::class,'show']);
+Route::get('/products/{id}/edit',[ProductController::class,'edit']);
+Route::put('/products/{id}',[ProductController::class,'update']);
+Route::delete('/products/{id}',[ProductController::class,'destroy']);
