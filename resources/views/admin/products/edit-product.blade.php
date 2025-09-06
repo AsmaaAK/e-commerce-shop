@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <h2>Edit Product</h2>
-    <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
+   <form action="{{ route('products.edit', $product) }}" method="GET" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
             <label>Product Name</label>
-            <input type="text" name="name" class="form-control" value="{{ $product->name }}" required>
+            <input type="text" name="name" class="form-control" value="{{ old('name',$product->name) }}" required>
         </div>
         <div class="mb-3">
             <label>Description</label>

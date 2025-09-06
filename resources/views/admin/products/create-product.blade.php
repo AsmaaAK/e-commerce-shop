@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Add New Product</h2>
+    <br><h2>Add New Product</h2><br>
     <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">

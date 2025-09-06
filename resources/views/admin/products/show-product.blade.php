@@ -20,8 +20,8 @@
                     <span class="badge bg-secondary">Stored</span>
                 @endif
             </p>
-            <p class="card-text"><small class="text-muted">Created at: {{ $product->created_at->format('Y-m-d') }}</small></p>
-            <p class="card-text"><small class="text-muted">Updated at: {{ $product->updated_at->format('Y-m-d') }}</small></p>
+            <p class="card-text"><small class="text-muted">Created at: {{ $product->created_at->format('Y-m-d') ?? 'N/A' }}</small></p>
+            <p class="card-text"><small class="text-muted">Updated at: {{ $product->updated_at->format('Y-m-d') ?? 'N/A'}}</small></p>
 
             <a href="{{ route('products.edit', $product) }}" class="btn btn-warning">Edit</a>
 
