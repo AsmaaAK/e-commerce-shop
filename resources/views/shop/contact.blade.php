@@ -4,17 +4,31 @@
 
 @section('content')
 {{-- @include('shop._alerts') --}}
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container mt-5 mb-5">
     <h1 class="mb-4">Contact Us</h1>
 
-    <form action="{{ route('contact.store') }}" method="POST" class="mt-3">
+    <form action="{{ route('contact.submit') }}" method="POST" class="mt-3">
         @csrf
 
         {{-- Name --}}
         <div class="mb-3">
             <label class="form-label">Name</label>
-            <input name="name" type="text" class="form-control" value="{{ old('name') }}" required>
+            <input name="name" type="text" class="form-control" value="{{ old('name') }}">
             @error('name')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -23,7 +37,7 @@
         {{-- Email --}}
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input name="email" type="email" class="form-control" value="{{ old('email') }}" required>
+            <input name="email" type="email" class="form-control" value="{{ old('email') }}">
             @error('email')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -32,7 +46,7 @@
         {{-- Message --}}
         <div class="mb-3">
             <label class="form-label">Message</label>
-            <textarea name="message" class="form-control" rows="5" maxlength="500" required>{{ old('message') }}</textarea>
+            <textarea name="message" class="form-control" rows="5" maxlength="500">{{ old('message') }}</textarea>
             <div class="form-text">Max 500 characters.</div>
             @error('message')
                 <small class="text-danger">{{ $message }}</small>

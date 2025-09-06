@@ -26,4 +26,4 @@ Route::get('/products/show/{id}',[ProductController::class,'show'])->name('produ
 Route::get('/products/{id?}/edit',[ProductController::class,'edit'])->name('products.edit');
 Route::put('/products/{id}',[ProductController::class,'update'])->name('products.update');
 Route::delete('/products/delete/{id}',[ProductController::class,'destroy'])->name('products.destroy');
-Route::post('/contact', [ContactController::class, 'submit']);
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
