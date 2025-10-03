@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
+use App\Mail\WelcomeEmail;
+use App\Notifications\NewOrderNotification;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +30,14 @@ Route::get('/products/{id?}/edit',[ProductController::class,'edit'])->name('prod
 Route::put('/products/{id}',[ProductController::class,'update'])->name('products.update');
 Route::delete('/products/delete/{id}',[ProductController::class,'destroy'])->name('products.destroy');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('/test-mail', function () {
+    Mail::to('test@example.com')->send(new WelcomeEmail());
+    return "Welcome Email Sent!";
+});
+
+Route::get('/test-notification', function () {
+    $user = \App\Models\User::first();
+    $user->notify(new NewOrderNotification());
+    return "Notification Sent!";
+});
