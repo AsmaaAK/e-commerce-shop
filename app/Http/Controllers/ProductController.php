@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
     // عرض جميع المنتجات
-    public function index()
-    {
-        $products = Product::all();
-        return view('admin.products.index', compact('products'));
-    }
+
+public function index()
+{
+    return ProductResource::collection(Product::all());
+}
 
     // عرض نموذج إضافة منتج جديد
     public function create()
