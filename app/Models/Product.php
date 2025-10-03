@@ -8,4 +8,10 @@ class Product extends Model
 {
     protected $fillable = ['name','description','price','on_sale','image_path'];
     protected $casts = ['on_sale'=>'boolean','price'=>'decimal:2'];
+
+    
+ public function category() {
+    return $this->belongsTo(Category::class);
+}
+
 }
