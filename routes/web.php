@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Mail\WelcomeEmail;
 use App\Notifications\NewOrderNotification;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,4 +41,9 @@ Route::get('/test-notification', function () {
     $user = \App\Models\User::first();
     $user->notify(new NewOrderNotification());
     return "Notification Sent!";
+});
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('/products', [AdminController::class, 'products']);
+    Route::get('/categories', [AdminController::class, 'categories']);
 });
