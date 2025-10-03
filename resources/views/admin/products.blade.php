@@ -4,3 +4,7 @@
         <td>{{ $product->category->name }}</td>
     </tr>
 @endforeach
+@can('update', $product)
+    <button>Edit Product</button>
+@endcan
+
